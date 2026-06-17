@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="2027 DSE countdown for HKDSE subjects." />
+    <title>DSE Countdown</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="site.webmanifest" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <nav class="site-nav" aria-label="Main navigation">
+        <a class="nav-brand" href="index.html">DSE Hub</a>
+        <div class="nav-links">
+          <a class="active" href="index.html">DSE Countdown</a>
+          <a href="ai-learning.html">How to Learn with AI</a>
+        </div>
+      </nav>
+
+      <header class="topbar">
+        <div class="exam-mark">
+          <span>2027</span>
+          <strong>DSE</strong>
+        </div>
+        <div>
+          <p class="eyebrow">HKDSE Countdown</p>
+          <h1>DSE Countdown</h1>
+        </div>
+      </header>
+
+      <div class="subject-sections" aria-label="DSE exam countdown">
+        <section class="subject-section" aria-labelledby="coreHeading">
+          <h2 class="section-title" id="coreHeading">Core Subjects</h2>
+          <div class="subject-grid" data-group="core"></div>
+        </section>
+
+        <section class="subject-section" aria-labelledby="electiveHeading">
+          <h2 class="section-title" id="electiveHeading">Elective Subjects</h2>
+          <div class="subject-grid" data-group="elective"></div>
+        </section>
+      </div>
+    </main>
+
+    <dialog class="exam-dialog" id="examDialog" aria-labelledby="dialogTitle">
+      <button class="close-button" type="button" aria-label="Close">×</button>
+      <div class="dialog-inner">
+        <p class="dialog-tag" id="dialogTag">Subject</p>
+        <h2 id="dialogTitle">DSE Subject</h2>
+        <p class="dialog-title-zh" id="dialogTitleZh">科目</p>
+        <p class="dialog-date" id="dialogDate">April 2027</p>
+
+        <div class="time-grid" role="timer" aria-label="Time remaining until exam">
+          <div class="time-block">
+            <span id="days">000</span>
+            <small>Days</small>
+          </div>
+          <div class="time-block">
+            <span id="hours">00</span>
+            <small>Hours</small>
+          </div>
+          <div class="time-block">
+            <span id="minutes">00</span>
+            <small>Minutes</small>
+          </div>
+          <div class="time-block">
+            <span id="seconds">00</span>
+            <small>Seconds</small>
+          </div>
+        </div>
+
+        <p class="status-row" id="statusText">Calculating...</p>
+      </div>
+    </dialog>
+
+    <script src="exams.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

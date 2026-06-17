@@ -1,0 +1,14 @@
+{
+  "name": "DSE Countdown",
+  "short_name": "DSE",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "theme_color": "#18202a",
+  "background_color": "#f7f3ea",
+  "display": "standalone"
+}
