@@ -75,8 +75,7 @@ function formatCardCountdown(remaining) {
 
 function createCard(exam, index) {
   return `
-    <button class="subject-card ${index % 2 ? "accent-card" : ""}" type="button" data-subject="${exam.key}">
-      <span class="card-tag">${exam.tag}</span>
+    <button class="subject-card ${index % 2 ? "accent-card" : ""}" type="button" id="subject-${exam.key}" data-subject="${exam.key}">
       <span class="card-title">${exam.title}</span>
       <span class="card-title-zh">${exam.titleZh}</span>
       <span class="card-date">${exam.dateLabel}</span>
@@ -105,6 +104,31 @@ function renderCards() {
       dialog.showModal();
     });
   });
+}
+
+function setupQuickLinks() {
+  document.querySelectorAll("[data-jump]").forEach((link) => {
+    link.addEventListener("click", (event) => {
+      event.preventDefault();
+      jumpToSubject(link.dataset.jump);
+    });
+  });
+}
+
+function jumpToSubject(subjectKey) {
+  const card = document.querySelector(`[data-subject="${subjectKey}"]`);
+
+  if (!card) {
+    return;
+  }
+
+  card.scrollIntoView({ behavior: "smooth", block: "center" });
+  card.focus({ preventScroll: true });
+  card.classList.add("is-highlighted");
+
+  window.setTimeout(() => {
+    card.classList.remove("is-highlighted");
+  }, 1600);
 }
 
 function setDialogSubject(exam) {
@@ -157,5 +181,6 @@ document.addEventListener("keydown", (event) => {
 });
 
 renderCards();
+setupQuickLinks();
 setDialogSubject(activeExam);
 setInterval(updateCountdowns, 1000);

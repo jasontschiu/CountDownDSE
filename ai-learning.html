@@ -1,24 +1,24 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh-Hant">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="A scrollable guide for students learning how to use AI effectively."
+      content="面對功課困難時，學習如何正確使用 AI 幫助自己理解題目。"
     />
-    <title>How to Learn with AI</title>
+    <title>如何使用AI學習</title>
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="manifest" href="site.webmanifest" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <main class="app learning-page">
-      <nav class="site-nav" aria-label="Main navigation">
+      <nav class="site-nav" aria-label="主選單">
         <a class="nav-brand" href="index.html">DSE Hub</a>
         <div class="nav-links">
           <a href="index.html">DSE Countdown</a>
-          <a class="active" href="ai-learning.html">How to Learn with AI</a>
+          <a class="active" href="ai-learning.html">如何使用AI學習</a>
         </div>
       </nav>
 
@@ -29,76 +29,188 @@
         </div>
         <div>
           <p class="eyebrow">Student Guide</p>
-          <h1>How to Learn with AI</h1>
-          <p class="hero-subtitle">如何使用AI學習</p>
+          <h1>面對功課問題時，如何使用 AI？</h1>
         </div>
       </header>
 
-      <section class="learning-stack" aria-label="AI learning guide">
+      <section class="learning-stack" aria-label="如何使用 AI 學習">
+        <article class="lesson-card intro-card">
+          <span class="lesson-number">00</span>
+          <div>
+            <p class="eyebrow">先建立正確心態</p>
+            <h2>用 AI 學得更好</h2>
+            <p class="lesson-subtitle">
+              AI 不只協助完成題目，更幫助你掌握自行解題的方法。
+            </p>
+            <p>
+              遇到不懂處理的功課時，使用 AI 協助是很自然的事。但 AI 不只可以給你答案，
+              它更可以幫助你一步步理解題目，最後能夠自己完成。
+            </p>
+            <p>
+              真正有效的 AI 學習，不是直接跳到答案，而是透過提示、解釋和引導，
+              幫你建立自己的理解。
+            </p>
+            <p>
+              當你能夠自己說明解題方法，並且可以再完成一次類似題目，
+              才代表你真的學會。
+            </p>
+          </div>
+        </article>
+
         <article class="lesson-card">
           <span class="lesson-number">01</span>
           <div>
-            <p class="eyebrow">Start with a clear task</p>
-            <h2>Ask AI to teach, not just answer.</h2>
+            <p class="eyebrow">第一步</p>
+            <h2>先用這個 AI 補習導師</h2>
             <p>
-              Instead of asking for the final answer, ask AI to explain the idea,
-              show the steps, and give you one similar question to try.
+              當你遇到不懂處理的題目時，可以先進入這個 AI 補習導師：
+              <a class="inline-link" href="https://gemini.google.com/gem/12zePed..." target="_blank" rel="noreferrer">
+                在這裡打開 Gemini Gem
+              </a>
             </p>
-            <div class="prompt-box">
-              Explain this topic in simple language, then give me one practice
-              question. Do not give the answer until I try.
-            </div>
+            <p>
+              進入後，你可以先輸入 <strong>1</strong>。系統會顯示使用說明，
+              說明如何上傳題目和開始對話。
+            </p>
+
+            <details class="prompt-panel">
+              <summary>或者複製這段提示詞去 AI 使用</summary>
+              <div class="prompt-actions">
+                <button class="copy-button" type="button" data-copy-target="tutorPrompt">
+                  複製提示詞
+                </button>
+                <span class="copy-status" aria-live="polite"></span>
+              </div>
+              <textarea id="tutorPrompt" readonly>
+角色設定 (Role):
+你是一位專業、有耐心且善於引導的「全科私人補習導師」。你的目標不是給學生答案，而是教會他們「如何利用手上的資料解決問題」。
+
+特殊指令 (Special Command - ONBOARDING):
+觸發條件：當用戶僅輸入數字「1」，或明確詢問「如何使用」、「說明書」時。
+執行動作：請忽略其他規則，直接輸出以下內容，並保持 Markdown 格式：
+
+📖 使用說明書
+你好！我是你的 24 小時私人補習導師。遇到不懂處理的功課時，請不要直接抄答案，我會引導你逐步學會。
+
+🚀 簡單 4 步曲，輕鬆解決難題：
+1. 📸 上傳題目與資料
+點擊「+」號，上傳你不懂做的題目照片。
+強烈建議同時上傳相關的課本 PDF 或筆記照片，我會跟足老師教法教你！
+
+2. 💬 等待確認
+發送後，我會先用文字確認收到題目，並分析這是哪個課題。
+
+3. 🗣️ 互動教學
+我們會開始引導式教學。你可以隨時提出問題，就像與真人補習導師討論一樣。
+
+4. 📝 領取學習筆記
+學會之後，我會自動生成一份「溫習筆記」給你，方便你在考試前複習。
+
+💡 小貼士 (Smart Tips):
+我不會直接給你答案，我會一步步引導你思考，確保你真的學會。
+如果我解釋得太深，請直接跟我說：「請用簡單一點的方法解釋。」
+現在就試試上傳你的第一條題目吧！
+
+工作流程 (Normal Workflow):
+階段一：分析與確認
+當學生上傳圖片或文件時，請先快速掃描內容，確認你已讀取到「題目」和「參考資料」（如有）。
+請用一句簡短而清晰的中文回應，確認收到資料，並立即提出第一個引導問題。
+回應範例：「收到。我看到這題是關於 [主題]。你是在哪一個步驟遇到困難？還是暫時完全沒有思路？請先告訴我你的想法。」
+
+階段二：引導式教學
+如果學生有上載參考資料，請明確引用學生上傳的參考資料。
+嚴禁直接給答案。
+回答要精簡，避免一次過發送長篇大論。
+一次只問一個小問題，引導學生一步步推導出結果。
+學生答錯時，指出盲點並請他再看一次題目或筆記。
+
+階段三：學習筆記生成
+當對話結束或題目解決後，自動生成一份 Markdown 格式的「📝 學習回顧筆記」，包含核心概念、解題關鍵步和易錯點提醒。
+
+限制與規則:
+1. 無論學生是用打字還是語音輸入，都堅持「引導」而非「代做」。
+2. 語言風格：親切、清晰、適合香港學生閱讀的中文書面語。
+</textarea>
+            </details>
           </div>
         </article>
 
         <article class="lesson-card">
           <span class="lesson-number">02</span>
           <div>
-            <p class="eyebrow">Check your understanding</p>
-            <h2>Use AI as a patient tutor.</h2>
+            <p class="eyebrow">第二步</p>
+            <h2>不要只問：「答案是甚麼？」</h2>
+            <p>不建議這樣問：</p>
+            <ul class="bad-list">
+              <li>幫我做這題。</li>
+              <li>直接給我答案。</li>
+              <li>這題答案是甚麼？</li>
+              <li>幫我完成整份功課。</li>
+            </ul>
             <p>
-              After studying, explain the concept back to AI. Ask it to find
-              gaps in your explanation and correct only the weak parts.
+              這樣做可能很快，但你未必知道題目考甚麼，也未必知道下一次應該怎樣做。
             </p>
-            <div class="prompt-box">
-              I will explain this in my own words. Tell me what is correct,
-              what is missing, and one thing I should revise.
-            </div>
           </div>
         </article>
 
         <article class="lesson-card">
           <span class="lesson-number">03</span>
           <div>
-            <p class="eyebrow">Revise actively</p>
-            <h2>Turn notes into practice.</h2>
+            <p class="eyebrow">第三步</p>
+            <h2>改為問：「我應該如何思考？」</h2>
+            <p>建議這樣問：</p>
+            <ul class="good-list">
+              <li>我完全不知道如何開始，這題考甚麼概念？</li>
+              <li>我做到這一步，下一步應該怎樣想？</li>
+              <li>我這個方法有沒有錯？</li>
+              <li>可不可以先給我一個提示，不要直接給答案？</li>
+              <li>可不可以用簡單一點的方法解釋？</li>
+              <li>可不可以出一條類似題讓我再試一次？</li>
+            </ul>
             <p>
-              Good revision is not rereading. Ask AI to turn your notes into
-              short quizzes, flashcards, and exam-style questions.
+              這些問法會幫助自己保留思考過程，而不是只抄下 AI 的答案。
             </p>
-            <div class="prompt-box">
-              Based on these notes, create 5 quiz questions from easy to hard.
-              Ask one question at a time and wait for my answer.
-            </div>
           </div>
         </article>
 
         <article class="lesson-card">
           <span class="lesson-number">04</span>
           <div>
-            <p class="eyebrow">Stay honest</p>
-            <h2>Let AI coach your thinking.</h2>
+            <p class="eyebrow">直接出答案 vs 真正學習</p>
+            <h2>完成一題，不等於學會一題。</h2>
+            <p>真正學習，是你知道：</p>
+            <ul class="good-list">
+              <li>這題考甚麼概念；</li>
+              <li>題目給了甚麼資料；</li>
+              <li>第一步應該怎樣開始；</li>
+              <li>中途錯在哪裏；</li>
+              <li>下次遇到類似題目時，自己能不能再做一次。</li>
+            </ul>
             <p>
-              If AI writes everything for you, you feel faster but learn less.
-              Use it to question your reasoning and improve your next attempt.
+              AI 最有價值的地方，不是幫助你「跳過困難」，而是幫助你「面對困難」。
             </p>
-            <div class="prompt-box">
-              Do not rewrite my full answer. Give me three specific suggestions
-              so I can improve it myself.
-            </div>
+          </div>
+        </article>
+
+        <article class="lesson-card">
+          <span class="lesson-number">05</span>
+          <div>
+            <p class="eyebrow">使用 AI 時要記住</p>
+            <h2>AI 可以幫你，但不應該代替你。</h2>
+            <ul class="good-list">
+              <li>AI 可以幫你解釋，但不應該代替你思考。</li>
+              <li>AI 可以給你提示，但不應該直接完成你的功課。</li>
+              <li>AI 可以幫你檢查，但它不一定永遠正確。</li>
+            </ul>
+            <p>
+              最後，如果你能夠不用看答案，自己再做一次，
+              才代表你真的學會。
+            </p>
           </div>
         </article>
       </section>
     </main>
+
+    <script src="ai-learning.js"></script>
   </body>
 </html>
