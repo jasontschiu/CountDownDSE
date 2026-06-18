@@ -160,6 +160,83 @@ h1 {
   letter-spacing: 0;
 }
 
+.index-page {
+  align-content: center;
+}
+
+.index-hero h1 {
+  max-width: 900px;
+  font-size: clamp(40px, 8vw, 88px);
+}
+
+.index-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(14px, 2vw, 22px);
+}
+
+.index-card {
+  position: relative;
+  min-height: 280px;
+  padding: clamp(20px, 3vw, 30px);
+  display: grid;
+  align-content: start;
+  gap: 12px;
+  border: 1px solid rgba(24, 32, 42, 0.14);
+  border-radius: 8px;
+  color: var(--ink);
+  text-decoration: none;
+  background: #93d9c4;
+  box-shadow: 0 18px 46px rgba(24, 32, 42, 0.12);
+  transition:
+    transform 160ms ease,
+    box-shadow 160ms ease,
+    border-color 160ms ease;
+}
+
+.index-card:hover {
+  border-color: rgba(31, 138, 112, 0.38);
+  box-shadow: 0 24px 58px rgba(24, 32, 42, 0.17);
+  transform: translateY(-4px);
+}
+
+.index-card-number {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  color: rgba(24, 32, 42, 0.16);
+  font-size: clamp(44px, 6vw, 72px);
+  font-weight: 950;
+  line-height: 1;
+}
+
+.index-card h2 {
+  position: relative;
+  margin: 0;
+  font-size: clamp(22px, 2.5vw, 31px);
+  line-height: 1.05;
+}
+
+.index-card p:not(.eyebrow) {
+  position: relative;
+  max-width: 28ch;
+  margin: 0;
+  color: var(--muted);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.55;
+}
+
+.value-prop {
+  max-width: 720px;
+  margin: -6px auto 0;
+  color: var(--soft-ink);
+  font-size: clamp(22px, 3.2vw, 36px);
+  font-weight: 950;
+  line-height: 1.08;
+  text-align: center;
+}
+
 .quick-jump {
   display: flex;
   flex-wrap: wrap;
@@ -705,6 +782,25 @@ h1 {
   line-height: 1.45;
 }
 
+.site-credit {
+  margin: clamp(26px, 5vw, 42px) 0 0;
+  padding: 18px 0 0;
+  border-top: 1px solid rgba(24, 32, 42, 0.13);
+  color: rgba(24, 32, 42, 0.66);
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.site-credit a {
+  color: #1f8a70;
+  text-decoration: none;
+}
+
+.site-credit a:hover {
+  text-decoration: underline;
+}
+
 @media (max-width: 760px) {
   .app {
     width: min(100% - 24px, 560px);
@@ -748,6 +844,14 @@ h1 {
   .lesson-card {
     min-height: auto;
     grid-template-columns: 1fr;
+  }
+
+  .index-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .index-card {
+    min-height: 220px;
   }
 }
 

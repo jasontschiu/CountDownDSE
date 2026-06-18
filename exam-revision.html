@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="用 AI 建立完整的考試溫習流程：診斷錯題、引導學習、針對小測和個人化溫習筆記。"
+    />
+    <title>AI 測考錯題跟進</title>
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+    <link rel="manifest" href="site.webmanifest" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app learning-page">
+      <nav class="site-nav" aria-label="主選單">
+        <a class="nav-brand" href="index.html">WSCSS AI learning hub</a>
+        <div class="nav-links">
+          <a href="index.html">主頁</a>
+          <a href="countdown.html">DSE Countdown</a>
+          <a href="ai-learning.html">如何用 AI 學習功課</a>
+          <a class="active" href="exam-revision.html">AI 測考錯題跟進</a>
+        </div>
+      </nav>
+
+      <header class="topbar learning-hero">
+        <div class="exam-mark">
+          <span>AI</span>
+          <strong>Exam</strong>
+        </div>
+        <div>
+          <p class="eyebrow">由錯題診斷、引導學習、針對小測，到生成個人化溫習筆記。</p>
+          <h1>用 AI 跟進測考錯題，找出真正弱點</h1>
+        </div>
+      </header>
+
+      <section class="learning-stack" aria-label="AI 測考錯題跟進">
+        <article class="lesson-card intro-card">
+          <span class="lesson-number">00</span>
+          <div>
+            <p class="eyebrow">完整溫習流程</p>
+            <h2>用 AI 建立一個完整的考試溫習流程</h2>
+            <p class="lesson-subtitle">
+              診斷錯題 → 引導學習 → 針對小測 → 生成個人化溫習筆記
+            </p>
+            <p>
+              這個流程幫你先找出真正不明白的地方，再逐步補弱項，最後用小測和筆記確認自己是否真的掌握。
+            </p>
+          </div>
+        </article>
+
+        <article class="lesson-card">
+          <span class="lesson-number">01</span>
+          <div>
+            <p class="eyebrow">先上傳錯題或教材</p>
+            <h2>讓 AI 先看清楚你真正錯在哪裏</h2>
+            <p>請先上傳以下其中一種材料：</p>
+            <ul class="good-list">
+              <li>做錯的功課或工作紙</li>
+              <li>課本相關頁面</li>
+            </ul>
+            <p>
+              AI 不是靠猜測幫你溫習，而是根據你實際做錯的地方，分析你最需要補救的部分。
+            </p>
+            <p>
+              建議最好一題一題處理，讓 AI 更準確找出每一題背後的弱點。
+            </p>
+
+            <details class="prompt-panel">
+              <summary>按此複製提示詞一：生成學習診斷報告</summary>
+              <div class="prompt-actions">
+                <button class="copy-button" type="button" data-copy-target="diagnosisPrompt">
+                  複製提示詞一
+                </button>
+                <span class="copy-status" aria-live="polite"></span>
+              </div>
+              <textarea id="diagnosisPrompt" readonly>
+你現在是一位資深的[學科]老師。我剛剛上傳了這課的課文內容[或/和]學生在做這份作業時的實際作答情況（包含打叉的錯題）。
+請詳細閱讀這些圖片，並為這位學生生成一份【學習診斷報告】。報告必須包含以下三部分：
+ 1 強項分析：學生已經掌握了哪些概念？
+ 2 弱點偵測（重點）：仔細分析學生的錯題，找出他『為什麼錯』？是概念不清、粗心大意，還是計算邏輯錯誤？請具體指出他卡在哪個知識點。
+ 3 補救路徑：針對上述弱點，列出接下來我們需要重點複習的關鍵字或公式。」
+</textarea>
+            </details>
+          </div>
+        </article>
+
+        <article class="lesson-card">
+          <span class="lesson-number">02</span>
+          <div>
+            <p class="eyebrow">生成學習診斷報告</p>
+            <h2>先找出強項、弱點和補救方向</h2>
+            <p>AI 會幫你分析三件事：</p>
+            <ul class="good-list">
+              <li>你已經掌握了甚麼</li>
+              <li>你為甚麼會錯</li>
+              <li>接下來應該先補哪一部分</li>
+            </ul>
+            <p>
+              這一步的目標不是批評自己，而是找出最值得溫習的弱點。
+            </p>
+            <p>
+              重點：不要只問「答案是甚麼」，而是先問「我為甚麼會錯」。
+            </p>
+          </div>
+        </article>
+
+        <article class="lesson-card">
+          <span class="lesson-number">03</span>
+          <div>
+            <p class="eyebrow">用輔助學習補弱項</p>
+            <h2>不直接看答案，而是一步步學懂</h2>
+            <p>請先把 Gemini 模式轉為：</p>
+            <p class="lesson-subtitle">輔助學習 / Guided Learning</p>
+            <p>
+              然後使用提示詞二。AI 會根據剛才的弱點，像補習老師一樣逐步提問，引導你自己想通。
+            </p>
+            <p>這一步最重要的是：</p>
+            <ul class="good-list">
+              <li>答錯時先看提示，不要急着看答案</li>
+              <li>不要太心急，學懂後才進入下一個概念</li>
+            </ul>
+
+            <details class="prompt-panel">
+              <summary>按此複製提示詞二：開始輔助學習</summary>
+              <div class="prompt-actions">
+                <button class="copy-button" type="button" data-copy-target="guidedPrompt">
+                  複製提示詞二
+                </button>
+                <span class="copy-status" aria-live="polite"></span>
+              </div>
+              <textarea id="guidedPrompt" readonly>
+根據你剛剛分析的【弱點偵測】部分，我們現在開始進行『輔助學習』。
+請你扮演一位非常有耐心的蘇格拉底式導師，不要直接將解釋或答案告訴我。
+規則如下：
+ 1 請針對我最不懂的觀念，提出一個簡單的問題作為開始。
+ 2 等待我回答。
+ 3 如果我答對了，就加深難度繼續問；如果我答錯了，請用生活化的例子或提示引導我，直到我自己想通。
+ 4 我們以『對話』的形式進行，一次只問一個問題，確保我真的弄懂了才進入下一個弱點。」
+</textarea>
+            </details>
+          </div>
+        </article>
+
+        <article class="lesson-card">
+          <span class="lesson-number">04</span>
+          <div>
+            <p class="eyebrow">用 Canvas 做針對性小測</p>
+            <h2>學完之後，要驗證自己是否真的掌握</h2>
+            <p>請把 Gemini 模式轉為：</p>
+            <p class="lesson-subtitle">Canvas</p>
+            <p>
+              然後使用提示詞三，生成一個針對弱點的 5 題小測。
+            </p>
+            <p>建議標準：</p>
+            <ul class="good-list">
+              <li>80% 以下：回到輔助學習，再補一次</li>
+            </ul>
+            <p>
+              真正學會，不是看完解釋，而是能夠自己再做對。
+            </p>
+
+            <details class="prompt-panel">
+              <summary>按此複製提示詞三：生成針對性小測</summary>
+              <div class="prompt-actions">
+                <button class="copy-button" type="button" data-copy-target="quizPrompt">
+                  複製提示詞三
+                </button>
+                <span class="copy-status" aria-live="polite"></span>
+              </div>
+              <textarea id="quizPrompt" readonly>
+我認為我已經掌握了。現在請切換為【測驗模式】。
+請根據我們剛剛討論過的弱點，為我生成一個 5 題的互動式選擇題測驗。
+規則：
+ 1 題目難度要適中，能測試出我是否真的理解了剛剛的易錯點。
+ 2 請不要一次顯示所有題目與答案。請一次只出一題，等待我輸入選項（A/B/C/D）。
+ 3 我回答後，你告訴我是否正確，並附上簡短解析，然後再出下一題。
+ 4 第 5 題結束後，請立刻生成一份【最終結算表格】，包含：我的分數、我是否已經克服了之前的弱點、以及下一次學習的建議。」
+</textarea>
+            </details>
+          </div>
+        </article>
+
+        <article class="lesson-card">
+          <span class="lesson-number">05</span>
+          <div>
+            <p class="eyebrow">生成個人化溫習筆記</p>
+            <h2>把今次錯過、學過、測過的內容記錄下來</h2>
+            <p>
+              最後使用提示詞四，要求 AI 生成一份只屬於自己的溫習筆記。
+            </p>
+            <p>筆記應該集中整理：</p>
+            <ul class="good-list">
+              <li>溫習重點</li>
+              <li>錯題記錄</li>
+            </ul>
+            <p>
+              這份筆記不是普通課本內容，而是針對你自己的錯題和弱點。
+            </p>
+
+            <details class="prompt-panel">
+              <summary>按此複製提示詞四：生成專屬溫習筆記</summary>
+              <div class="prompt-actions">
+                <button class="copy-button" type="button" data-copy-target="notesPrompt">
+                  複製提示詞四
+                </button>
+                <span class="copy-status" aria-live="polite"></span>
+              </div>
+              <textarea id="notesPrompt" readonly>
+「感謝你的教導。作為這次學習的總結，請幫我將我們剛才所有討論的重點，整理成一份**【專屬我的溫習筆記】**。
+請不要給我通用的課本內容，我只需要針對我原本犯錯以及後來修正的觀念製作筆記。
+請依照以下格式整理：
+ 1 溫習重點：整理我今次需要記住的核心概念、公式或解題方法。
+ 2 錯題記錄：記錄我原本錯在哪裏、為甚麼會錯，以及下次要注意甚麼。
+請使用清晰的 Markdown 格式（列點、表格、粗體）呈現，讓我方便截圖或列印保存。」
+</textarea>
+            </details>
+          </div>
+        </article>
+
+        <article class="lesson-card">
+          <span class="lesson-number">06</span>
+          <div>
+            <p class="eyebrow">完整流程</p>
+            <h2>每完成一次，就是補好一個弱點</h2>
+            <p class="lesson-subtitle">
+              上傳錯題或教材 → 生成診斷報告 → 引導學習 → Canvas 小測 → 個人化溫習筆記
+            </p>
+            <p>
+              不要一次過把整科內容丟給 AI。
+              每次集中處理一個課題或一類錯題，你會更清楚自己錯在哪裏，也更容易真正學懂。
+            </p>
+            <p>
+              完成一次流程，就留下一份屬於自己的溫習筆記。
+              累積幾份筆記後，考試前就可以合併成一份最貼合自己的總溫習筆記。
+            </p>
+          </div>
+        </article>
+      </section>
+
+      <footer class="site-credit">
+        Credit:
+        <a href="https://www.youtube.com/@DesmondSir" target="_blank" rel="noreferrer">
+          YouTube Desmond EdTech 教學頻道
+        </a>
+      </footer>
+    </main>
+
+    <script src="ai-learning.js"></script>
+  </body>
+</html>

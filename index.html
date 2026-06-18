@@ -3,97 +3,62 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="2027 DSE countdown for HKDSE subjects." />
-    <title>DSE Countdown</title>
+    <meta name="description" content="WSCSS AI learning hub index for DSE countdown, AI homework study, and AI exam revision." />
+    <title>WSCSS AI learning hub</title>
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="manifest" href="site.webmanifest" />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <main class="app">
+    <main class="app index-page">
       <nav class="site-nav" aria-label="Main navigation">
-        <a class="nav-brand" href="index.html">DSE Hub</a>
+        <a class="nav-brand" href="index.html">WSCSS AI learning hub</a>
         <div class="nav-links">
-          <a class="active" href="index.html">DSE Countdown</a>
-          <a href="ai-learning.html">How to Learn with AI</a>
+          <a class="active" href="index.html">Home</a>
+          <a href="countdown.html">DSE Countdown</a>
+          <a href="ai-learning.html">AI Homework Study Guide</a>
+          <a href="exam-revision.html">AI Test & Exam Review</a>
         </div>
       </nav>
 
-      <header class="topbar">
+      <header class="topbar index-hero">
         <div class="exam-mark">
-          <span>2027</span>
-          <strong>DSE</strong>
+          <span>WSCSS</span>
+          <strong>AI</strong>
         </div>
         <div>
-          <p class="eyebrow">HKDSE Countdown</p>
-          <h1>DSE Countdown</h1>
+          <p class="eyebrow">WSCSS AI learning hub</p>
+          <h1>Learn Smarter with AI</h1>
         </div>
       </header>
 
-      <div class="quick-jump" aria-label="Quick subject links">
-        <a href="#subject-chinese-language" data-jump="chinese-language">Chi</a>
-        <a href="#subject-english-language" data-jump="english-language">Eng</a>
-        <a href="#subject-math-core" data-jump="math-core">Maths</a>
-        <a href="#subject-csd" data-jump="csd">CSD</a>
-        <a href="#subject-visual-arts" data-jump="visual-arts">VA</a>
-        <a href="#subject-chinese-literature" data-jump="chinese-literature">CLit.</a>
-        <a href="#subject-chemistry" data-jump="chemistry">Chem</a>
-        <a href="#subject-geography" data-jump="geography">Geog</a>
-        <a href="#subject-ict" data-jump="ict">ICT</a>
-        <a href="#subject-biology" data-jump="biology">Bio</a>
-        <a href="#subject-physics" data-jump="physics">Phy</a>
-        <a href="#subject-economics" data-jump="economics">Econ</a>
-        <a href="#subject-math-extended" data-jump="math-extended">Maths(ext.)</a>
-        <a href="#subject-chinese-history" data-jump="chinese-history">CHist</a>
-        <a href="#subject-bafs" data-jump="bafs">BAFS</a>
-        <a href="#subject-history" data-jump="history">Hist</a>
-      </div>
+      <section class="index-grid" aria-label="Learning hub tools">
+        <a class="index-card" href="countdown.html">
+          <span class="index-card-number">01</span>
+          <p class="eyebrow">Exam dates</p>
+          <h2>DSE Countdown</h2>
+          <p>Check the 2027 DSE subject countdown and key exam dates.</p>
+        </a>
 
-      <div class="subject-sections" aria-label="DSE exam countdown">
-        <section class="subject-section" aria-labelledby="coreHeading">
-          <h2 class="section-title" id="coreHeading">Core Subjects</h2>
-          <div class="subject-grid" data-group="core"></div>
-        </section>
+        <a class="index-card" href="ai-learning.html">
+          <span class="index-card-number">02</span>
+          <p class="eyebrow">Homework support</p>
+          <h2>AI Homework Study Guide</h2>
+          <p>Learn how to use AI to understand homework without copying answers.</p>
+        </a>
 
-        <section class="subject-section" aria-labelledby="electiveHeading">
-          <h2 class="section-title" id="electiveHeading">Elective Subjects</h2>
-          <div class="subject-grid" data-group="elective"></div>
-        </section>
-      </div>
+        <a class="index-card" href="exam-revision.html">
+          <span class="index-card-number">03</span>
+          <p class="eyebrow">Test & Exam Review</p>
+          <h2>AI Test & Exam Review</h2>
+          <p>Follow up wrong answers, find weak points, relearn key concepts, and create personalised revision notes.</p>
+        </a>
+      </section>
+
+      <p class="value-prop">
+        Use AI to build understanding,<br />
+        think better, and learn deeper.
+      </p>
     </main>
-
-    <dialog class="exam-dialog" id="examDialog" aria-labelledby="dialogTitle">
-      <button class="close-button" type="button" aria-label="Close">×</button>
-      <div class="dialog-inner">
-        <p class="dialog-tag" id="dialogTag">Subject</p>
-        <h2 id="dialogTitle">DSE Subject</h2>
-        <p class="dialog-title-zh" id="dialogTitleZh">科目</p>
-        <p class="dialog-date" id="dialogDate">April 2027</p>
-
-        <div class="time-grid" role="timer" aria-label="Time remaining until exam">
-          <div class="time-block">
-            <span id="days">000</span>
-            <small>Days</small>
-          </div>
-          <div class="time-block">
-            <span id="hours">00</span>
-            <small>Hours</small>
-          </div>
-          <div class="time-block">
-            <span id="minutes">00</span>
-            <small>Minutes</small>
-          </div>
-          <div class="time-block">
-            <span id="seconds">00</span>
-            <small>Seconds</small>
-          </div>
-        </div>
-
-        <p class="status-row" id="statusText">Calculating...</p>
-      </div>
-    </dialog>
-
-    <script src="exams.js"></script>
-    <script src="script.js"></script>
   </body>
 </html>

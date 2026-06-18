@@ -161,7 +161,7 @@ function updateCountdowns() {
     ? "Today is exam day"
     : `${remaining.days} days left until ${activeExam.title}`;
 
-  document.title = `${formatTitleTime(remaining)} | DSE Countdown`;
+  document.title = `${formatTitleTime(remaining)} | WSCSS AI learning hub`;
 }
 
 closeButton.addEventListener("click", () => {

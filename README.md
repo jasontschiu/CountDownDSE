@@ -1,13 +1,15 @@
-# DSE Countdown App
+# WSCSS AI learning hub
 
-This is a static 2027 HKDSE countdown app. The interface uses English as the primary language, with Chinese subject names shown as supporting labels. Exam data is stored separately in `exams.js`.
+This is a static WSCSS AI learning hub with a 2027 HKDSE countdown, an AI homework study guide, and an AI exam revision guide. Exam data is stored separately in `exams.js`.
 
 Teachers can click any subject card to open a larger countdown view.
 
 ## Pages
 
-- `index.html`: DSE Countdown
-- `ai-learning.html`: How to Learn with AI
+- `index.html`: Hub index
+- `countdown.html`: DSE Countdown
+- `ai-learning.html`: 如何用 AI 學習功課 / AI Homework Study Guide
+- `exam-revision.html`: AI 測考錯題跟進 / AI Exam Revision Guide
 
 ## Groups
 
