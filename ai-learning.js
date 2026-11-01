@@ -9,11 +9,11 @@ document.querySelectorAll("[data-copy-target]").forEach((button) => {
 
     try {
       await navigator.clipboard.writeText(target.value.trim());
-      status.textContent = "Copied";
+      status.textContent = status.dataset.copied;
     } catch {
       target.select();
       document.execCommand("copy");
-      status.textContent = "Copied";
+      status.textContent = status.dataset.copied;
     }
 
     window.setTimeout(() => {

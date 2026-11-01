@@ -8,8 +8,14 @@ Teachers can click any subject card to open a larger countdown view.
 
 - `index.html`: Hub index
 - `countdown.html`: DSE Countdown
-- `ai-learning.html`: 如何用 AI 學習功課 / AI Homework Study Guide
-- `exam-revision.html`: AI 測考錯題跟進 / AI Exam Revision Guide
+- `ai-learning.html`: AI 功課指南 / AI Homework Guide
+- `exam-revision.html`: AI 測考跟進 / AI Exam Review
+
+## English / Chinese Toggle
+
+Every page has an EN / 中文 toggle in the navigation bar. English is the default, and the visitor's choice is remembered in their browser by `i18n.js`.
+
+Each language's content is written in the HTML with `data-lang="en"` or `data-lang="zh"`. When editing these pages, update both versions. Countdown card text comes from `exams.js` and `script.js`.
 
 ## Groups
 
@@ -46,8 +52,10 @@ Elective Subjects:
 
 ## Editing Exam Times
 
-To edit subjects or exam times, open `exams.js` and change the relevant `dateTime`:
+To edit subjects or exam times, open `exams.js` and change the relevant `dateTime`, along with the `dateLabel` and `dateLabelZh` text shown on the page:
 
 ```js
-dateTime: "2027-04-12T08:30:00+08:00"
+dateLabel: "Apr 12, 2027 (Mon), 8:30 AM",
+dateLabelZh: "2027年4月12日（星期一）上午8:30",
+dateTime: "2027-04-12T08:30:00+08:00",
 ```

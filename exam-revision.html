@@ -1,26 +1,48 @@
 <!doctype html>
-<html lang="zh-Hant">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="用 AI 建立完整的考試溫習流程：診斷錯題、引導學習、針對小測和個人化溫習筆記。"
+      content="Use AI to build a complete exam revision process: diagnose mistakes, guided learning, targeted quizzes and personalised revision notes."
+      data-en="Use AI to build a complete exam revision process: diagnose mistakes, guided learning, targeted quizzes and personalised revision notes."
+      data-zh="用 AI 建立完整的考試溫習流程：診斷錯題、引導學習、針對小測和個人化溫習筆記。"
     />
-    <title>AI 測考錯題跟進</title>
+    <title data-en="AI Exam Review" data-zh="AI 測考跟進">AI Exam Review</title>
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="manifest" href="site.webmanifest" />
     <link rel="stylesheet" href="styles.css" />
+    <script src="i18n.js"></script>
   </head>
   <body>
     <main class="app learning-page">
-      <nav class="site-nav" aria-label="主選單">
-        <a class="nav-brand" href="index.html">WSCSS AI learning hub</a>
+      <nav class="site-nav" aria-label="Main navigation" data-en="Main navigation" data-zh="主選單">
+        <a class="nav-brand" href="index.html">
+          <span data-lang="en">WSCSS AI learning hub</span>
+          <span data-lang="zh">WSCSS AI 學習中心</span>
+        </a>
         <div class="nav-links">
-          <a href="index.html">主頁</a>
-          <a href="countdown.html">DSE Countdown</a>
-          <a href="ai-learning.html">如何用 AI 學習功課</a>
-          <a class="active" href="exam-revision.html">AI 測考錯題跟進</a>
+          <a href="index.html">
+            <span data-lang="en">Home</span>
+            <span data-lang="zh">主頁</span>
+          </a>
+          <a href="countdown.html">
+            <span data-lang="en">DSE Countdown</span>
+            <span data-lang="zh">DSE 倒數</span>
+          </a>
+          <a href="ai-learning.html">
+            <span data-lang="en">AI Homework Guide</span>
+            <span data-lang="zh">AI 功課指南</span>
+          </a>
+          <a class="active" href="exam-revision.html">
+            <span data-lang="en">AI Exam Review</span>
+            <span data-lang="zh">AI 測考跟進</span>
+          </a>
+          <div class="lang-toggle" role="group" aria-label="Language" data-en="Language" data-zh="語言">
+            <button type="button" data-set-lang="en" aria-pressed="true">EN</button>
+            <button type="button" data-set-lang="zh-Hant" aria-pressed="false">中文</button>
+          </div>
         </div>
       </nav>
 
@@ -30,12 +52,218 @@
           <strong>Exam</strong>
         </div>
         <div>
-          <p class="eyebrow">由錯題診斷、引導學習、針對小測，到生成個人化溫習筆記。</p>
-          <h1>用 AI 跟進測考錯題，找出真正弱點</h1>
+          <p class="eyebrow" data-lang="en">From diagnosing mistakes and guided learning to targeted quizzes and personalised revision notes.</p>
+          <p class="eyebrow" data-lang="zh">由錯題診斷、引導學習、針對小測，到生成個人化溫習筆記。</p>
+          <h1 data-lang="en">AI Exam Review</h1>
+          <h1 data-lang="zh">AI 測考跟進</h1>
         </div>
       </header>
 
-      <section class="learning-stack" aria-label="AI 測考錯題跟進">
+      <section class="learning-stack" data-lang="en" aria-label="AI Exam Review">
+        <article class="lesson-card intro-card">
+          <span class="lesson-number">00</span>
+          <div>
+            <p class="eyebrow">The complete revision process</p>
+            <h2>Use AI to build a complete exam revision process</h2>
+            <p class="lesson-subtitle">
+              Diagnose mistakes → Guided learning → Targeted quiz → Personalised revision notes
+            </p>
+            <p>
+              This process helps you first find what you really don't understand, then fix your weak areas step by step, and finally use a quiz and notes to confirm you have truly mastered them.
+            </p>
+          </div>
+        </article>
+
+        <article class="lesson-card">
+          <span class="lesson-number">01</span>
+          <div>
+            <p class="eyebrow">Upload your mistakes or materials first</p>
+            <h2>Let AI see exactly where you went wrong</h2>
+            <p>First upload one of these materials:</p>
+            <ul class="good-list">
+              <li>Homework or worksheets with mistakes</li>
+              <li>The related textbook pages</li>
+            </ul>
+            <p>
+              AI does not help you revise by guessing. It analyses what you most need to fix based on the mistakes you actually made.
+            </p>
+            <p>
+              It is best to work through one question at a time, so AI can more accurately find the weak point behind each one.
+            </p>
+
+            <details class="prompt-panel">
+              <summary>Click to copy Prompt 1: Generate a learning diagnosis report</summary>
+              <div class="prompt-actions">
+                <button class="copy-button" type="button" data-copy-target="diagnosisPromptEn">
+                  Copy Prompt 1
+                </button>
+                <span class="copy-status" aria-live="polite" data-copied="Copied"></span>
+              </div>
+              <textarea id="diagnosisPromptEn" readonly>
+You are now an experienced [subject] teacher. I have just uploaded the text for this lesson [and/or] the student's actual answers for this assignment (including the questions marked wrong).
+Please read these images carefully and generate a [Learning Diagnosis Report] for this student. The report must include these three parts:
+ 1 Strengths: Which concepts has the student already mastered?
+ 2 Weak point detection (key part): Carefully analyse the student's mistakes and find out "why they went wrong". Was it an unclear concept, carelessness, or an error in calculation logic? Please state specifically which point of knowledge they are stuck on.
+ 3 Recovery path: Based on these weak points, list the keywords or formulas we need to focus on revising next.
+</textarea>
+            </details>
+          </div>
+        </article>
+
+        <article class="lesson-card">
+          <span class="lesson-number">02</span>
+          <div>
+            <p class="eyebrow">Generate a learning diagnosis report</p>
+            <h2>Find your strengths, weak points and what to fix</h2>
+            <p>AI will help you analyse three things:</p>
+            <ul class="good-list">
+              <li>What you have already mastered</li>
+              <li>Why you went wrong</li>
+              <li>Which part you should fix first</li>
+            </ul>
+            <p>
+              The aim of this step is not to criticise yourself, but to find the weak points most worth revising.
+            </p>
+            <p>
+              Key point: don't just ask "What is the answer?". Ask "Why did I get this wrong?" first.
+            </p>
+          </div>
+        </article>
+
+        <article class="lesson-card">
+          <span class="lesson-number">03</span>
+          <div>
+            <p class="eyebrow">Fix weak areas with Guided Learning</p>
+            <h2>Don't look at the answer. Learn it step by step.</h2>
+            <p>First switch Gemini's mode to:</p>
+            <p class="lesson-subtitle">Guided Learning</p>
+            <p>
+              Then use Prompt 2. Based on the weak points just found, AI will ask you questions step by step like a tutor, guiding you to work things out yourself.
+            </p>
+            <p>The most important things in this step:</p>
+            <ul class="good-list">
+              <li>When you answer wrongly, look at the hint first. Don't rush to the answer.</li>
+              <li>Take your time, and only move to the next concept once you understand this one.</li>
+            </ul>
+
+            <details class="prompt-panel">
+              <summary>Click to copy Prompt 2: Start Guided Learning</summary>
+              <div class="prompt-actions">
+                <button class="copy-button" type="button" data-copy-target="guidedPromptEn">
+                  Copy Prompt 2
+                </button>
+                <span class="copy-status" aria-live="polite" data-copied="Copied"></span>
+              </div>
+              <textarea id="guidedPromptEn" readonly>
+Based on the [Weak point detection] part you just analysed, let's now begin "guided learning".
+Please act as a very patient Socratic tutor. Do not tell me explanations or answers directly.
+The rules are:
+ 1 Start with one simple question about the concept I understand least.
+ 2 Wait for my answer.
+ 3 If I answer correctly, make it harder and keep asking. If I answer wrongly, guide me with everyday examples or hints until I work it out myself.
+ 4 We will work as a "conversation". Ask only one question at a time, and make sure I really understand before moving to the next weak point.
+</textarea>
+            </details>
+          </div>
+        </article>
+
+        <article class="lesson-card">
+          <span class="lesson-number">04</span>
+          <div>
+            <p class="eyebrow">Take a targeted quiz with Canvas</p>
+            <h2>After learning, check whether you have really mastered it</h2>
+            <p>Switch Gemini's mode to:</p>
+            <p class="lesson-subtitle">Canvas</p>
+            <p>
+              Then use Prompt 3 to generate a 5-question quiz focused on your weak points.
+            </p>
+            <p>Suggested standard:</p>
+            <ul class="good-list">
+              <li>Below 80%: go back to Guided Learning and work on it again</li>
+            </ul>
+            <p>
+              Really learning something does not mean reading the explanation. It means getting it right again by yourself.
+            </p>
+
+            <details class="prompt-panel">
+              <summary>Click to copy Prompt 3: Generate a targeted quiz</summary>
+              <div class="prompt-actions">
+                <button class="copy-button" type="button" data-copy-target="quizPromptEn">
+                  Copy Prompt 3
+                </button>
+                <span class="copy-status" aria-live="polite" data-copied="Copied"></span>
+              </div>
+              <textarea id="quizPromptEn" readonly>
+I think I have mastered it now. Please switch to [Quiz Mode].
+Based on the weak points we just discussed, generate a 5-question interactive multiple-choice quiz for me.
+Rules:
+ 1 The difficulty should be moderate, and able to test whether I really understand the mistakes I was prone to making.
+ 2 Do not show all the questions and answers at once. Give only one question at a time and wait for me to enter an option (A/B/C/D).
+ 3 After I answer, tell me whether I am correct with a short explanation, then give the next question.
+ 4 After question 5, immediately generate a [Final Results Table] that includes my score, whether I have overcome my earlier weak points, and suggestions for my next study session.
+</textarea>
+            </details>
+          </div>
+        </article>
+
+        <article class="lesson-card">
+          <span class="lesson-number">05</span>
+          <div>
+            <p class="eyebrow">Generate personalised revision notes</p>
+            <h2>Record what you got wrong, learned and tested this time</h2>
+            <p>
+              Finally, use Prompt 4 to ask AI to generate revision notes that are entirely your own.
+            </p>
+            <p>The notes should focus on:</p>
+            <ul class="good-list">
+              <li>Key revision points</li>
+              <li>A record of your mistakes</li>
+            </ul>
+            <p>
+              These notes are not ordinary textbook content. They focus on your own mistakes and weak points.
+            </p>
+
+            <details class="prompt-panel">
+              <summary>Click to copy Prompt 4: Generate your own revision notes</summary>
+              <div class="prompt-actions">
+                <button class="copy-button" type="button" data-copy-target="notesPromptEn">
+                  Copy Prompt 4
+                </button>
+                <span class="copy-status" aria-live="polite" data-copied="Copied"></span>
+              </div>
+              <textarea id="notesPromptEn" readonly>
+Thank you for teaching me. To sum up this study session, please organise the key points of everything we just discussed into **[My Personal Revision Notes]**.
+Please do not give me general textbook content. I only need notes on the concepts I originally got wrong and later corrected.
+Please organise them in this format:
+ 1 Key revision points: The core concepts, formulas or solution methods I need to remember this time.
+ 2 Mistake record: Where I originally went wrong, why I went wrong, and what to watch out for next time.
+Please use clear Markdown formatting (bullet points, tables, bold) so that I can easily screenshot or print the notes to keep.
+</textarea>
+            </details>
+          </div>
+        </article>
+
+        <article class="lesson-card">
+          <span class="lesson-number">06</span>
+          <div>
+            <p class="eyebrow">The complete process</p>
+            <h2>Each round fixes one more weak point</h2>
+            <p class="lesson-subtitle">
+              Upload mistakes or materials → Generate a diagnosis report → Guided learning → Canvas quiz → Personalised revision notes
+            </p>
+            <p>
+              Don't give AI an entire subject all at once.
+              Focus on one topic or one type of mistake each time. You will see more clearly where you went wrong, and find it easier to really understand.
+            </p>
+            <p>
+              Each round through the process leaves you with a set of your own revision notes.
+              Once you have built up a few, you can combine them before the exam into one set of revision notes that suits you best.
+            </p>
+          </div>
+        </article>
+      </section>
+
+      <section class="learning-stack" data-lang="zh" aria-label="AI 測考跟進">
         <article class="lesson-card intro-card">
           <span class="lesson-number">00</span>
           <div>
@@ -70,17 +298,17 @@
             <details class="prompt-panel">
               <summary>按此複製提示詞一：生成學習診斷報告</summary>
               <div class="prompt-actions">
-                <button class="copy-button" type="button" data-copy-target="diagnosisPrompt">
+                <button class="copy-button" type="button" data-copy-target="diagnosisPromptZh">
                   複製提示詞一
                 </button>
-                <span class="copy-status" aria-live="polite"></span>
+                <span class="copy-status" aria-live="polite" data-copied="已複製"></span>
               </div>
-              <textarea id="diagnosisPrompt" readonly>
+              <textarea id="diagnosisPromptZh" readonly>
 你現在是一位資深的[學科]老師。我剛剛上傳了這課的課文內容[或/和]學生在做這份作業時的實際作答情況（包含打叉的錯題）。
 請詳細閱讀這些圖片，並為這位學生生成一份【學習診斷報告】。報告必須包含以下三部分：
  1 強項分析：學生已經掌握了哪些概念？
  2 弱點偵測（重點）：仔細分析學生的錯題，找出他『為什麼錯』？是概念不清、粗心大意，還是計算邏輯錯誤？請具體指出他卡在哪個知識點。
- 3 補救路徑：針對上述弱點，列出接下來我們需要重點複習的關鍵字或公式。」
+ 3 補救路徑：針對上述弱點，列出接下來我們需要重點複習的關鍵字或公式。
 </textarea>
             </details>
           </div>
@@ -125,19 +353,19 @@
             <details class="prompt-panel">
               <summary>按此複製提示詞二：開始輔助學習</summary>
               <div class="prompt-actions">
-                <button class="copy-button" type="button" data-copy-target="guidedPrompt">
+                <button class="copy-button" type="button" data-copy-target="guidedPromptZh">
                   複製提示詞二
                 </button>
-                <span class="copy-status" aria-live="polite"></span>
+                <span class="copy-status" aria-live="polite" data-copied="已複製"></span>
               </div>
-              <textarea id="guidedPrompt" readonly>
+              <textarea id="guidedPromptZh" readonly>
 根據你剛剛分析的【弱點偵測】部分，我們現在開始進行『輔助學習』。
 請你扮演一位非常有耐心的蘇格拉底式導師，不要直接將解釋或答案告訴我。
 規則如下：
  1 請針對我最不懂的觀念，提出一個簡單的問題作為開始。
  2 等待我回答。
  3 如果我答對了，就加深難度繼續問；如果我答錯了，請用生活化的例子或提示引導我，直到我自己想通。
- 4 我們以『對話』的形式進行，一次只問一個問題，確保我真的弄懂了才進入下一個弱點。」
+ 4 我們以『對話』的形式進行，一次只問一個問題，確保我真的弄懂了才進入下一個弱點。
 </textarea>
             </details>
           </div>
@@ -164,19 +392,19 @@
             <details class="prompt-panel">
               <summary>按此複製提示詞三：生成針對性小測</summary>
               <div class="prompt-actions">
-                <button class="copy-button" type="button" data-copy-target="quizPrompt">
+                <button class="copy-button" type="button" data-copy-target="quizPromptZh">
                   複製提示詞三
                 </button>
-                <span class="copy-status" aria-live="polite"></span>
+                <span class="copy-status" aria-live="polite" data-copied="已複製"></span>
               </div>
-              <textarea id="quizPrompt" readonly>
+              <textarea id="quizPromptZh" readonly>
 我認為我已經掌握了。現在請切換為【測驗模式】。
 請根據我們剛剛討論過的弱點，為我生成一個 5 題的互動式選擇題測驗。
 規則：
  1 題目難度要適中，能測試出我是否真的理解了剛剛的易錯點。
  2 請不要一次顯示所有題目與答案。請一次只出一題，等待我輸入選項（A/B/C/D）。
  3 我回答後，你告訴我是否正確，並附上簡短解析，然後再出下一題。
- 4 第 5 題結束後，請立刻生成一份【最終結算表格】，包含：我的分數、我是否已經克服了之前的弱點、以及下一次學習的建議。」
+ 4 第 5 題結束後，請立刻生成一份【最終結算表格】，包含：我的分數、我是否已經克服了之前的弱點、以及下一次學習的建議。
 </textarea>
             </details>
           </div>
@@ -202,18 +430,18 @@
             <details class="prompt-panel">
               <summary>按此複製提示詞四：生成專屬溫習筆記</summary>
               <div class="prompt-actions">
-                <button class="copy-button" type="button" data-copy-target="notesPrompt">
+                <button class="copy-button" type="button" data-copy-target="notesPromptZh">
                   複製提示詞四
                 </button>
-                <span class="copy-status" aria-live="polite"></span>
+                <span class="copy-status" aria-live="polite" data-copied="已複製"></span>
               </div>
-              <textarea id="notesPrompt" readonly>
-「感謝你的教導。作為這次學習的總結，請幫我將我們剛才所有討論的重點，整理成一份**【專屬我的溫習筆記】**。
+              <textarea id="notesPromptZh" readonly>
+感謝你的教導。作為這次學習的總結，請幫我將我們剛才所有討論的重點，整理成一份**【專屬我的溫習筆記】**。
 請不要給我通用的課本內容，我只需要針對我原本犯錯以及後來修正的觀念製作筆記。
 請依照以下格式整理：
  1 溫習重點：整理我今次需要記住的核心概念、公式或解題方法。
  2 錯題記錄：記錄我原本錯在哪裏、為甚麼會錯，以及下次要注意甚麼。
-請使用清晰的 Markdown 格式（列點、表格、粗體）呈現，讓我方便截圖或列印保存。」
+請使用清晰的 Markdown 格式（列點、表格、粗體）呈現，讓我方便截圖或列印保存。
 </textarea>
             </details>
           </div>
@@ -242,7 +470,8 @@
       <footer class="site-credit">
         Credit:
         <a href="https://www.youtube.com/@DesmondSir" target="_blank" rel="noreferrer">
-          YouTube Desmond EdTech 教學頻道
+          <span data-lang="en">Desmond EdTech teaching channel on YouTube</span>
+          <span data-lang="zh">YouTube Desmond EdTech 教學頻道</span>
         </a>
       </footer>
     </main>

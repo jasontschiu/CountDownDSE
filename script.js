@@ -3,6 +3,25 @@ const exams = window.DSE_EXAMS.map((exam) => ({
   examDate: new Date(exam.dateTime),
 }));
 
+const UI_TEXT = {
+  en: {
+    siteName: "WSCSS AI learning hub",
+    cardExamDay: "Exam Day",
+    titleExamDay: "Exam day",
+    statusExamDay: "Today is exam day",
+    days: (days) => `${days} Days`,
+    daysLeft: (days, title) => `${days} days left until ${title}`,
+  },
+  "zh-Hant": {
+    siteName: "WSCSS AI 學習中心",
+    cardExamDay: "考試日",
+    titleExamDay: "考試日",
+    statusExamDay: "今天是考試日",
+    days: (days) => `${days} 天`,
+    daysLeft: (days, title) => `距離${title}還有 ${days} 天`,
+  },
+};
+
 let activeExam = exams[0];
 
 const dialog = document.querySelector("#examDialog");
@@ -18,6 +37,28 @@ const dialogFields = {
   seconds: document.querySelector("#seconds"),
   status: document.querySelector("#statusText"),
 };
+
+function getText() {
+  return UI_TEXT[document.documentElement.lang];
+}
+
+function getExamText(exam) {
+  if (document.documentElement.lang === "en") {
+    return {
+      tag: exam.tag,
+      title: exam.title,
+      subtitle: exam.titleZh,
+      date: exam.dateLabel,
+    };
+  }
+
+  return {
+    tag: exam.tagZh,
+    title: exam.titleZh,
+    subtitle: exam.title,
+    date: exam.dateLabelZh,
+  };
+}
 
 function pad(value, length = 2) {
   return String(value).padStart(length, "0");
@@ -49,10 +90,10 @@ function getRemaining(examDate) {
 
 function formatTitleTime(remaining) {
   if (remaining.finished) {
-    return "Exam day";
+    return getText().titleExamDay;
   }
 
-  return `${remaining.days} Days ${pad(remaining.hours)}:${pad(
+  return `${getText().days(remaining.days)} ${pad(remaining.hours)}:${pad(
     remaining.minutes,
   )}:${pad(remaining.seconds)}`;
 }
@@ -60,13 +101,13 @@ function formatTitleTime(remaining) {
 function formatCardCountdown(remaining) {
   if (remaining.finished) {
     return `
-      <span class="countdown-days">Exam Day</span>
+      <span class="countdown-days">${getText().cardExamDay}</span>
       <span class="countdown-clock">00:00:00</span>
     `;
   }
 
   return `
-    <span class="countdown-days">${remaining.days} Days</span>
+    <span class="countdown-days">${getText().days(remaining.days)}</span>
     <span class="countdown-clock">${pad(remaining.hours)}:${pad(
       remaining.minutes,
     )}:${pad(remaining.seconds)}</span>
@@ -74,11 +115,13 @@ function formatCardCountdown(remaining) {
 }
 
 function createCard(exam, index) {
+  const examText = getExamText(exam);
+
   return `
     <button class="subject-card ${index % 2 ? "accent-card" : ""}" type="button" id="subject-${exam.key}" data-subject="${exam.key}">
-      <span class="card-title">${exam.title}</span>
-      <span class="card-title-zh">${exam.titleZh}</span>
-      <span class="card-date">${exam.dateLabel}</span>
+      <span class="card-title">${examText.title}</span>
+      <span class="card-title-zh">${examText.subtitle}</span>
+      <span class="card-date">${examText.date}</span>
       <span class="mini-countdown" data-countdown="${exam.key}">
         <span class="countdown-days">000 Days</span>
         <span class="countdown-clock">00:00:00</span>
@@ -134,10 +177,12 @@ function jumpToSubject(subjectKey) {
 function setDialogSubject(exam) {
   activeExam = exam;
 
-  dialogFields.tag.textContent = exam.tag;
-  dialogFields.title.textContent = exam.title;
-  dialogFields.titleZh.textContent = exam.titleZh;
-  dialogFields.date.textContent = exam.dateLabel;
+  const examText = getExamText(exam);
+
+  dialogFields.tag.textContent = examText.tag;
+  dialogFields.title.textContent = examText.title;
+  dialogFields.titleZh.textContent = examText.subtitle;
+  dialogFields.date.textContent = examText.date;
   updateCountdowns();
 }
 
@@ -158,10 +203,10 @@ function updateCountdowns() {
   dialogFields.minutes.textContent = pad(remaining.minutes);
   dialogFields.seconds.textContent = pad(remaining.seconds);
   dialogFields.status.textContent = remaining.finished
-    ? "Today is exam day"
-    : `${remaining.days} days left until ${activeExam.title}`;
+    ? getText().statusExamDay
+    : getText().daysLeft(remaining.days, getExamText(activeExam).title);
 
-  document.title = `${formatTitleTime(remaining)} | WSCSS AI learning hub`;
+  document.title = `${formatTitleTime(remaining)} | ${getText().siteName}`;
 }
 
 closeButton.addEventListener("click", () => {
@@ -178,6 +223,11 @@ document.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && dialog.open) {
     dialog.close();
   }
+});
+
+document.addEventListener("site-language-change", () => {
+  renderCards();
+  setDialogSubject(activeExam);
 });
 
 renderCards();

@@ -1,26 +1,48 @@
 ﻿<!doctype html>
-<html lang="zh-Hant">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="面對功課困難時，學習如何正確使用 AI 幫助自己理解題目。"
+      content="Learn how to use AI properly to understand questions when homework gets difficult."
+      data-en="Learn how to use AI properly to understand questions when homework gets difficult."
+      data-zh="面對功課困難時，學習如何正確使用 AI 幫助自己理解題目。"
     />
-    <title>如何用 AI 學習功課</title>
+    <title data-en="AI Homework Guide" data-zh="AI 功課指南">AI Homework Guide</title>
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="manifest" href="site.webmanifest" />
     <link rel="stylesheet" href="styles.css" />
+    <script src="i18n.js"></script>
   </head>
   <body>
     <main class="app learning-page">
-      <nav class="site-nav" aria-label="主選單">
-        <a class="nav-brand" href="index.html">WSCSS AI learning hub</a>
+      <nav class="site-nav" aria-label="Main navigation" data-en="Main navigation" data-zh="主選單">
+        <a class="nav-brand" href="index.html">
+          <span data-lang="en">WSCSS AI learning hub</span>
+          <span data-lang="zh">WSCSS AI 學習中心</span>
+        </a>
         <div class="nav-links">
-          <a href="index.html">主頁</a>
-          <a href="countdown.html">DSE Countdown</a>
-          <a class="active" href="ai-learning.html">如何用 AI 學習功課</a>
-          <a href="exam-revision.html">AI 測考錯題跟進</a>
+          <a href="index.html">
+            <span data-lang="en">Home</span>
+            <span data-lang="zh">主頁</span>
+          </a>
+          <a href="countdown.html">
+            <span data-lang="en">DSE Countdown</span>
+            <span data-lang="zh">DSE 倒數</span>
+          </a>
+          <a class="active" href="ai-learning.html">
+            <span data-lang="en">AI Homework Guide</span>
+            <span data-lang="zh">AI 功課指南</span>
+          </a>
+          <a href="exam-revision.html">
+            <span data-lang="en">AI Exam Review</span>
+            <span data-lang="zh">AI 測考跟進</span>
+          </a>
+          <div class="lang-toggle" role="group" aria-label="Language" data-en="Language" data-zh="語言">
+            <button type="button" data-set-lang="en" aria-pressed="true">EN</button>
+            <button type="button" data-set-lang="zh-Hant" aria-pressed="false">中文</button>
+          </div>
         </div>
       </nav>
 
@@ -30,12 +52,193 @@
           <strong>Study</strong>
         </div>
         <div>
-          <p class="eyebrow">WSCSS AI learning hub</p>
-          <h1>如何用 AI 學習功課</h1>
+          <p class="eyebrow" data-lang="en">WSCSS AI learning hub</p>
+          <p class="eyebrow" data-lang="zh">WSCSS AI 學習中心</p>
+          <h1 data-lang="en">AI Homework Guide</h1>
+          <h1 data-lang="zh">AI 功課指南</h1>
         </div>
       </header>
 
-      <section class="learning-stack" aria-label="如何用 AI 學習功課">
+      <section class="learning-stack" data-lang="en" aria-label="AI Homework Guide">
+        <article class="lesson-card intro-card">
+          <span class="lesson-number">00</span>
+          <div>
+            <p class="eyebrow">Get started</p>
+            <h2>Open this AI tutor first</h2>
+            <p>
+              When you are stuck on a question, start with this AI tutor:
+              <a class="inline-link" href="https://gemini.google.com/gem/3409909342bf?usp=sharing" target="_blank" rel="noreferrer">
+                Open the Gemini Gem here
+              </a>
+            </p>
+            <p>
+              Once inside, type <strong>1</strong>. It will show you instructions
+              on how to upload a question and start the conversation.
+            </p>
+
+            <details class="prompt-panel">
+              <summary>Or copy this prompt to use with an AI</summary>
+              <div class="prompt-actions">
+                <button class="copy-button" type="button" data-copy-target="tutorPromptEn">
+                  Copy prompt
+                </button>
+                <span class="copy-status" aria-live="polite" data-copied="Copied"></span>
+              </div>
+              <textarea id="tutorPromptEn" readonly>
+Role:
+You are a professional, patient "private tutor for all subjects" who is skilled at guiding students. Your goal is not to give students the answer, but to teach them "how to use the materials they have to solve problems".
+
+Special Command - ONBOARDING:
+Trigger: when the user enters only the number "1", or explicitly asks "how do I use this" or for the "user guide".
+Action: ignore the other rules and output the following content directly, keeping the Markdown format:
+
+📖 User Guide
+Hello! I am your 24-hour private tutor. When you are stuck on homework, please do not just copy the answer. I will guide you step by step until you have learned it.
+
+🚀 4 simple steps to solve difficult questions:
+1. 📸 Upload the question and materials
+Click the "+" button and upload a photo of the question you are stuck on.
+It is strongly recommended that you also upload the related textbook PDF or photos of your notes, so I can follow the way your teacher teaches!
+
+2. 💬 Wait for confirmation
+After you send it, I will first confirm in text that I have received the question and work out which topic it belongs to.
+
+3. 🗣️ Interactive teaching
+We will start guided teaching. You can ask questions at any time, just like talking with a real tutor.
+
+4. 📝 Get your study notes
+Once you have learned it, I will automatically create a set of "revision notes" for you to review before exams.
+
+💡 Smart Tips:
+I will not give you the answer directly. I will guide your thinking step by step to make sure you really learn it.
+If my explanation is too difficult, just tell me: "Please explain it in a simpler way."
+Now try uploading your first question!
+
+Normal Workflow:
+Stage 1: Analyse and confirm
+When a student uploads an image or file, quickly scan the content and confirm that you have read the "question" and the "reference materials" (if any).
+Reply with one short, clear sentence in English confirming that you have received the materials, then immediately ask the first guiding question.
+Example reply: "Got it. I can see this question is about [topic]. Which step are you stuck on, or do you have no idea where to start yet? Please tell me what you are thinking first."
+
+Stage 2: Guided teaching
+If the student has uploaded reference materials, cite them explicitly.
+Never give the answer directly.
+Keep replies concise and avoid sending long passages all at once.
+Ask only one small question at a time, guiding the student to work out the result step by step.
+When the student answers incorrectly, point out the blind spot and ask them to look at the question or notes again.
+
+Stage 3: Generate study notes
+When the conversation ends or the question is solved, automatically generate "📝 Study Review Notes" in Markdown format, including the core concepts, key solution steps and reminders about common mistakes.
+
+Limits and rules:
+1. Whether the student types or uses voice input, always insist on "guiding" rather than "doing it for them".
+2. Language style: friendly, clear English suitable for Hong Kong students.
+</textarea>
+            </details>
+          </div>
+        </article>
+
+
+        <article class="lesson-card">
+          <span class="lesson-number">01</span>
+          <div>
+            <p class="eyebrow">Start with the right mindset</p>
+            <h2>Learn better with AI</h2>
+            <p class="lesson-subtitle">
+              AI does more than help you finish questions. It helps you master how to solve them yourself.
+            </p>
+            <p>
+              It is natural to turn to AI when you are stuck on homework. But AI can do more
+              than give you the answer. It can help you understand a question step by step,
+              until you can finish it yourself.
+            </p>
+            <p>
+              Learning well with AI does not mean jumping straight to the answer. It means using
+              hints, explanations and guidance to build your own understanding.
+            </p>
+            <p>
+              You have only really learned it when you can explain the method yourself
+              and complete a similar question again.
+            </p>
+          </div>
+        </article>
+
+        <article class="lesson-card">
+          <span class="lesson-number">02</span>
+          <div>
+            <p class="eyebrow">How to ask</p>
+            <h2>Don't just ask: "What is the answer?"</h2>
+            <p>Avoid asking like this:</p>
+            <ul class="bad-list">
+              <li>Do this question for me.</li>
+              <li>Just give me the answer.</li>
+              <li>What is the answer to this question?</li>
+              <li>Finish all my homework for me.</li>
+            </ul>
+            <p>
+              This may be quick, but you may not know what the question is testing, or what to do next time.
+            </p>
+          </div>
+        </article>
+
+        <article class="lesson-card">
+          <span class="lesson-number">03</span>
+          <div>
+            <p class="eyebrow">Better ways to ask</p>
+            <h2>Ask instead: "How should I think about this?"</h2>
+            <p>Try asking like this:</p>
+            <ul class="good-list">
+              <li>I have no idea where to start. What concept is this question testing?</li>
+              <li>I have got this far. How should I think about the next step?</li>
+              <li>Is there anything wrong with my method?</li>
+              <li>Can you give me a hint first, without giving the answer?</li>
+              <li>Can you explain it in a simpler way?</li>
+              <li>Can you give me a similar question to try again?</li>
+            </ul>
+            <p>
+              These questions help you keep your own thinking process, rather than just copying down the AI's answer.
+            </p>
+          </div>
+        </article>
+
+        <article class="lesson-card">
+          <span class="lesson-number">04</span>
+          <div>
+            <p class="eyebrow">Instant answers vs real learning</p>
+            <h2>Finishing a question is not the same as learning it.</h2>
+            <p>Real learning means you know:</p>
+            <ul class="good-list">
+              <li>what concept the question is testing;</li>
+              <li>what information the question gives you;</li>
+              <li>how to begin the first step;</li>
+              <li>where you went wrong along the way;</li>
+              <li>whether you can do it again yourself when a similar question comes up.</li>
+            </ul>
+            <p>
+              The greatest value of AI is not helping you "skip the difficulty", but helping you "face the difficulty".
+            </p>
+          </div>
+        </article>
+
+        <article class="lesson-card">
+          <span class="lesson-number">05</span>
+          <div>
+            <p class="eyebrow">Remember when using AI</p>
+            <h2>AI can help you, but should not replace you.</h2>
+            <ul class="good-list">
+              <li>AI can explain things to you, but should not think for you.</li>
+              <li>AI can give you hints, but should not complete your homework for you.</li>
+              <li>AI can help you check your work, but it is not always correct.</li>
+            </ul>
+            <p>
+              In the end, you have only really learned it if you can do it again yourself
+              without looking at the answer.
+            </p>
+          </div>
+        </article>
+      </section>
+
+      <section class="learning-stack" data-lang="zh" aria-label="AI 功課指南">
         <article class="lesson-card intro-card">
           <span class="lesson-number">00</span>
           <div>
@@ -43,7 +246,7 @@
             <h2>先打開這個 AI 補習導師</h2>
             <p>
               當你遇到不懂處理的題目時，可以先進入這個 AI 補習導師：
-              <a class="inline-link" href="https://gemini.google.com/gem/12zePed..." target="_blank" rel="noreferrer">
+              <a class="inline-link" href="https://gemini.google.com/gem/3409909342bf?usp=sharing" target="_blank" rel="noreferrer">
                 在這裡打開 Gemini Gem
               </a>
             </p>
@@ -55,12 +258,12 @@
             <details class="prompt-panel">
               <summary>或者複製這段提示詞去 AI 使用</summary>
               <div class="prompt-actions">
-                <button class="copy-button" type="button" data-copy-target="tutorPrompt">
+                <button class="copy-button" type="button" data-copy-target="tutorPromptZh">
                   複製提示詞
                 </button>
-                <span class="copy-status" aria-live="polite"></span>
+                <span class="copy-status" aria-live="polite" data-copied="已複製"></span>
               </div>
-              <textarea id="tutorPrompt" readonly>
+              <textarea id="tutorPromptZh" readonly>
 角色設定 (Role):
 你是一位專業、有耐心且善於引導的「全科私人補習導師」。你的目標不是給學生答案，而是教會他們「如何利用手上的資料解決問題」。
 
@@ -216,7 +419,8 @@
       <footer class="site-credit">
         Credit:
         <a href="https://www.youtube.com/@DesmondSir" target="_blank" rel="noreferrer">
-          YouTube Desmond EdTech 教學頻道
+          <span data-lang="en">Desmond EdTech teaching channel on YouTube</span>
+          <span data-lang="zh">YouTube Desmond EdTech 教學頻道</span>
         </a>
       </footer>
     </main>

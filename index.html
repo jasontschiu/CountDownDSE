@@ -3,21 +3,46 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="WSCSS AI learning hub index for DSE countdown, AI homework study, and AI exam revision." />
-    <title>WSCSS AI learning hub</title>
+    <meta
+      name="description"
+      content="WSCSS AI learning hub index for DSE countdown, AI homework study, and AI exam revision."
+      data-en="WSCSS AI learning hub index for DSE countdown, AI homework study, and AI exam revision."
+      data-zh="WSCSS AI 學習中心：DSE 倒數、AI 功課學習及 AI 測考跟進。"
+    />
+    <title data-en="WSCSS AI learning hub" data-zh="WSCSS AI 學習中心">WSCSS AI learning hub</title>
     <link rel="icon" href="favicon.svg" type="image/svg+xml" />
     <link rel="manifest" href="site.webmanifest" />
     <link rel="stylesheet" href="styles.css" />
+    <script src="i18n.js"></script>
   </head>
   <body>
     <main class="app index-page">
-      <nav class="site-nav" aria-label="Main navigation">
-        <a class="nav-brand" href="index.html">WSCSS AI learning hub</a>
+      <nav class="site-nav" aria-label="Main navigation" data-en="Main navigation" data-zh="主選單">
+        <a class="nav-brand" href="index.html">
+          <span data-lang="en">WSCSS AI learning hub</span>
+          <span data-lang="zh">WSCSS AI 學習中心</span>
+        </a>
         <div class="nav-links">
-          <a class="active" href="index.html">Home</a>
-          <a href="countdown.html">DSE Countdown</a>
-          <a href="ai-learning.html">AI Homework Study Guide</a>
-          <a href="exam-revision.html">AI Test & Exam Review</a>
+          <a class="active" href="index.html">
+            <span data-lang="en">Home</span>
+            <span data-lang="zh">主頁</span>
+          </a>
+          <a href="countdown.html">
+            <span data-lang="en">DSE Countdown</span>
+            <span data-lang="zh">DSE 倒數</span>
+          </a>
+          <a href="ai-learning.html">
+            <span data-lang="en">AI Homework Guide</span>
+            <span data-lang="zh">AI 功課指南</span>
+          </a>
+          <a href="exam-revision.html">
+            <span data-lang="en">AI Exam Review</span>
+            <span data-lang="zh">AI 測考跟進</span>
+          </a>
+          <div class="lang-toggle" role="group" aria-label="Language" data-en="Language" data-zh="語言">
+            <button type="button" data-set-lang="en" aria-pressed="true">EN</button>
+            <button type="button" data-set-lang="zh-Hant" aria-pressed="false">中文</button>
+          </div>
         </div>
       </nav>
 
@@ -27,37 +52,52 @@
           <strong>AI</strong>
         </div>
         <div>
-          <p class="eyebrow">WSCSS AI learning hub</p>
-          <h1>Learn Smarter with AI</h1>
+          <p class="eyebrow" data-lang="en">WSCSS AI learning hub</p>
+          <p class="eyebrow" data-lang="zh">WSCSS AI 學習中心</p>
+          <h1 data-lang="en">Learn Smarter with AI</h1>
+          <h1 data-lang="zh">用 AI 學得更聰明</h1>
         </div>
       </header>
 
-      <section class="index-grid" aria-label="Learning hub tools">
+      <section class="index-grid" aria-label="Learning hub tools" data-en="Learning hub tools" data-zh="學習中心工具">
         <a class="index-card" href="countdown.html">
           <span class="index-card-number">01</span>
-          <p class="eyebrow">Exam dates</p>
-          <h2>DSE Countdown</h2>
-          <p>Check the 2027 DSE subject countdown and key exam dates.</p>
+          <p class="eyebrow" data-lang="en">Exam dates</p>
+          <p class="eyebrow" data-lang="zh">考試日期</p>
+          <h2 data-lang="en">DSE Countdown</h2>
+          <h2 data-lang="zh">DSE 倒數</h2>
+          <p data-lang="en">Check the 2027 DSE subject countdown and key exam dates.</p>
+          <p data-lang="zh">查看 2027 年 DSE 各科倒數及重要考試日期。</p>
         </a>
 
         <a class="index-card" href="ai-learning.html">
           <span class="index-card-number">02</span>
-          <p class="eyebrow">Homework support</p>
-          <h2>AI Homework Study Guide</h2>
-          <p>Learn how to use AI to understand homework without copying answers.</p>
+          <p class="eyebrow" data-lang="en">Homework support</p>
+          <p class="eyebrow" data-lang="zh">功課支援</p>
+          <h2 data-lang="en">AI Homework Guide</h2>
+          <h2 data-lang="zh">AI 功課指南</h2>
+          <p data-lang="en">Learn how to use AI to understand homework without copying answers.</p>
+          <p data-lang="zh">學習如何用 AI 理解功課，而不是抄答案。</p>
         </a>
 
         <a class="index-card" href="exam-revision.html">
           <span class="index-card-number">03</span>
-          <p class="eyebrow">Test & Exam Review</p>
-          <h2>AI Test & Exam Review</h2>
-          <p>Follow up wrong answers, find weak points, relearn key concepts, and create personalised revision notes.</p>
+          <p class="eyebrow" data-lang="en">Test & Exam Review</p>
+          <p class="eyebrow" data-lang="zh">測考跟進</p>
+          <h2 data-lang="en">AI Exam Review</h2>
+          <h2 data-lang="zh">AI 測考跟進</h2>
+          <p data-lang="en">Follow up wrong answers, find weak points, relearn key concepts, and create personalised revision notes.</p>
+          <p data-lang="zh">跟進錯題、找出弱點、重溫重要概念，並製作個人化溫習筆記。</p>
         </a>
       </section>
 
-      <p class="value-prop">
+      <p class="value-prop" data-lang="en">
         Use AI to build understanding,<br />
         think better, and learn deeper.
+      </p>
+      <p class="value-prop" data-lang="zh">
+        善用 AI 建立理解、<br />
+        提升思考、深入學習。
       </p>
     </main>
   </body>
